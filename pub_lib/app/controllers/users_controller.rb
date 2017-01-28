@@ -14,9 +14,9 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-    redirect_to root_path
+    login(@user) # <-- log the user in
+    redirect_to @user # <-- go to show
   end
-
 
   private
 
