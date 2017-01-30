@@ -9,15 +9,17 @@
   </head>
 
   <body>
-    <ul>
-      <% if current_user %>
-        <li><%= link_to "Profile", user_path(current_user) %></li>
-        <li><%= link_to "Log Out", logout_path %></li>
-      <% else %>
-        <li><%= link_to "Create Account", new_user_path %></li>
-        <li><%= link_to "Log In", login_path %></li>
-      <% end %>
-    </ul>
+    <nav>
+      <ul>
+        <% if current_user %>
+          <li><%= link_to "Profile", user_path(current_user) %></li>
+          <li><%= link_to "Log Out", logout_path %></li>
+        <% else %>
+          <li><%= link_to "Create Account", new_user_path %></li>
+          <li><%= link_to "Log In", login_path %></li>
+        <% end %>
+      </ul>
+    </nav>
 
     <% flash.each do |name, msg| %>
       <p>
@@ -26,6 +28,6 @@
     <% end %>
     <!-- ... -->
     <%= yield %>
-    
+
   </body>
 </html>
